@@ -1,0 +1,417 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .site {
+    font-family: 'Lato', sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-background-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+  }
+  .nav-logo {
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0b3b8a;
+    letter-spacing: 1px;
+    align-items: center;
+  }
+
+  .nav-logo img {
+    width: 200px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0b3b8a 0%, #185fc9 60%, #1a6fe0 100%);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffe89a;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 420px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .hero-btn {
+    display: inline-block;
+    background: #f5c800;
+    color: #1a1a1a;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  .section {
+    padding: 4rem 2rem;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c0392b;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+  .section-subtitle {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 500px;
+  }
+  .about {
+    background: var(--color-background-secondary);
+    background-image: url(./resources/logo.PNG);
+  }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .about-img {
+    background: #0b3b8a;
+    border-radius: 12px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-img span {
+    font-size: 60px;
+  }
+  .stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #c0392b;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+  .menu-section {
+    background: var(--color-background-primary);
+  }
+  .menu-section .section-title {
+    text-align: center;
+  }
+  .menu-section .section-label {
+    text-align: center;
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .menu-card {
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--color-background-primary);
+  }
+  .menu-img {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+  .menu-img.bandeja {
+    background-image: url(./resources/bandejaPaisa.jpeg);
+    background-size: cover;
+    background-position: center;
+  }
+  .menu-img.ajiaco {
+    background-image: url(./resources/hamburguesa.jpeg);
+    background-size: cover;
+    background-position: center;
+  }
+  .menu-img.empanadas {
+    background-image: url(./resources/milanesa.jpeg);
+    background-size: cover;
+    background-position: center;
+  }
+  .menu-info {
+    padding: 0.75rem 1rem;
+  }
+  .menu-name {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--color-text-primary);
+  }
+  .menu-desc {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  .menu-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0b3b8a;
+    margin-top: 8px;
+  }
+  .contact-section {
+    background: #0b3b8a;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .contact-section .section-label {
+    color: #ffe89a;
+  }
+  .contact-section .section-title {
+    color: #fff;
+  }
+  .contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .contact-item {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+  }
+  .contact-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .contact-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffe89a;
+    margin-bottom: 4px;
+  }
+  .footer {
+    padding: 1.5rem 2rem;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: #0b3b8a;
+  }
+  .footer-copy {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+  .col-stripe {
+    display: flex;
+    height: 5px;
+  }
+  .col-stripe div {
+    flex: 1;
+  }
+</style>
+
+<div class="site">
+  <div class="col-stripe">
+    <div style="background: #f5c800"></div>
+    <div style="background: #0b3b8a"></div>
+    <div style="background: #c0392b"></div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-logo">
+      <img
+        src="./resources/logo.PNG"
+        alt="Logo del negocio, un sombrero y alas con los colores de la bandera colombiana "
+      />Ricuras San Rafael
+    </div>
+    <div class="nav-links">
+      <a href="#">Inicio</a>
+      <a href="#">Menú</a>
+      <a href="#">Nosotros</a>
+      <a href="#">Contacto</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">Cocina colombiana auténtica · Guatemala</div>
+    <h1>El sabor de Colombia<br />en tu mesa</h1>
+    <p>
+      Recetas tradicionales preparadas con ingredientes frescos. Una experiencia
+      culinaria que te transporta a Colombia.
+    </p>
+    <a href="#" class="hero-btn">Ver nuestro menú</a>
+  </section>
+
+  <section class="section about">
+    <div class="about-inner">
+      <div class="about-img"><span>🍲</span></div>
+      <div>
+        <div class="section-label">Nuestra historia</div>
+        <div class="section-title">Tradición familiar desde Guatemala</div>
+        <p class="section-subtitle">
+          Llevamos el auténtico sabor colombiano a Guatemala con recetas que han
+          pasado de generación en generación.
+        </p>
+        <div class="stats">
+          <div>
+            <div class="stat-num">13K+</div>
+            <div class="stat-label">Seguidores en Facebook</div>
+          </div>
+          <div>
+            <div class="stat-num">4.3★</div>
+            <div class="stat-label">Calificación en Google</div>
+          </div>
+          <div>
+            <div class="stat-num">122</div>
+            <div class="stat-label">Reseñas verificadas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section menu-section">
+    <div class="section-label">Lo que nos piden más</div>
+    <div class="section-title">Nuestros platos estrella</div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-img bandeja"></div>
+        <div class="menu-info">
+          <div class="menu-name">Bandeja paisa</div>
+          <div class="menu-desc">
+            Frijoles, chorizo, arroz, aguacate, carne molida, huevo, arepa y
+            chicharron
+          </div>
+          <div class="menu-price">Q85</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img ajiaco"></div>
+        <div class="menu-info">
+          <div class="menu-name">Hamburguesa Colombiana</div>
+          <div class="menu-desc">
+            Carne, queso, tomate, lechuga, tocino y aros de cebolla
+          </div>
+          <div class="menu-price">Q65</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img empanadas"></div>
+        <div class="menu-info">
+          <div class="menu-name">Milanessa</div>
+          <div class="menu-desc">
+            Deliciosa milanessa de cerdo con ensalada de lechuga y tomate
+            cherry, patacon y arroz, acompañala con una deliciosa cerveza
+          </div>
+          <div class="menu-price">Q65</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="section-label">Encuéntranos</div>
+    <div class="section-title">Visítanos hoy</div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-label">Ubicación</div>
+        Carretera a El Salvador, Guatemala
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-label">Horario</div>
+        Lunes a Domingo · 8am – 9pm
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div class="contact-label">WhatsApp</div>
+        Reserva tu mesa
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo">Ricuras San Rafael</div>
+    <div class="footer-copy">Sitio web desarrollado por Juan Díaz · 2026</div>
+  </footer>
+</div>
